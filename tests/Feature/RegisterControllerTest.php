@@ -25,7 +25,7 @@ class RegisterControllerTest extends TestCase
             'Accept' => 'application/json'
         ]);
 
-        $response->assertJsonMissingValidationErrors();
+        $response->assertJsonMissingValidationErrors(['name', 'email', 'password']);
         $response->assertStatus(201);
         $response->assertJsonFragment([
             'message' => trans('auth.user_created_message'),
